@@ -118,25 +118,26 @@ int main()
     char senhadigitada[10]="a";
     char logindigitado[10]="a";   
     int comparacao;
+    int comparacao2;
     
     
     printf("### Cartório da EBAC ###\n\n");
     printf("Login de administrador! \n\nDigite o seu login: ");
     scanf("%s",logindigitado);
     
-    comparacao = strcmp(logindigitado,"richardsantos");
+    comparacao2 = strcmp(logindigitado,"richardsantos");
 	  
     printf("\nDigite a sua senha: ");
     scanf("%s",senhadigitada);
     
     comparacao = strcmp(senhadigitada,"admin");
-    
-    
-				   
+       				   
     if(comparacao == 0)
     {
     	
-    	   	 		        
+    	if (comparacao2 == 0)
+		{
+								  	 		        
    		 for(x=1;x=1;)
    		 {
 	
@@ -180,19 +181,12 @@ int main()
 	 		system("pause");
 	 		break;
 	     }	
-	 		
-	 		
-	 		
-	 		
-	 		
-	 		
+	 			 			 			 			 			 		
 	  		}	  		
-   	   
-		  
-		    	      	     	   
+   	   }else
+   	       printf("Login incorreto!");		  		    	      	     	   
    	}else
-		printf("Senha incorreta!");
-		
+		printf("Senha incorreta!");		
  }
 	    
 
