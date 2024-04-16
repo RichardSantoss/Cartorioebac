@@ -51,11 +51,13 @@ int registro() // função responsável por cadastrar usuários no sistema
     
     printf("Digite o cargo a ser cadastrado: ");
     scanf("%s",cargo);
+    
     file = fopen(arquivo, "a");
     fprintf(file,cargo);
     fclose(file);
     
     system("pause");
+    
 }
 
 int consulta()
@@ -73,17 +75,17 @@ int consulta()
 	
 	if(file == NULL)
 	{
-	      printf("Não foi possivel abrir o arquivo, não foi localizado\n");		
+	    printf("Não foi possivel abrir o arquivo, não foi localizado\n");		
 	} 
 	
-	while(fgets(conteudo, 200, file) != NULL );
-	{
-	
+	while(fgets(conteudo, 200, file) != NULL)
+	{	
 		printf("\nEssas são as informações do usuário: ");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
 	
+	fclose(file);
 	system("pause");
     
 
@@ -96,7 +98,7 @@ int deletar()
 	printf("Digite o CPF do usuário a ser deletado: ");
 	scanf("%s",cpf);
 	
-	remove(cpf);
+	
 	
 	FILE *file;
 	file = fopen(cpf,"r");
@@ -106,7 +108,18 @@ int deletar()
 		printf("O usuário não se encontra no sistema\n");
 		system("pause");
 		
+	}else{
+		fclose(file);
+		remove(cpf);
+		FILE *file;	
+		file = fopen(cpf,"r");
+		if(file == NULL){
+			printf("Usuário deletado com sucesso!.\n");
+			system("pause");
+		}
+		
 	}
+	fclose(file);
 	
 }
 
